@@ -1,0 +1,1564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>game_of_cards API documentation</title>
+<meta name="description" content="Created on Dec 13, 2022 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>game_of_cards</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+Created on Dec 13, 2022\n
+@author: Saad and Sameed
+&#34;&#34;&#34;
+
+import random
+import sys
+from time import sleep
+
+
+class Nim:
+    def __init__(self, initial: list = [1, 3, 5, 7]) -&gt; None:
+        # The piles are the state of the cards
+
+        self.piles: list = initial.copy()
+        # Current turn of player
+        self.player: int = 0
+        # Current winner
+        self.winner: (None | int) = None
+
+    @classmethod
+    def available_actions(cls, piles: list) -&gt; set:
+        &#34;&#34;&#34;
+        Find the all the available actions in the provided piles.
+
+        ## Paramenters:
+        *piles:* The All piles in the game currently being played.
+
+        ## Return:
+        The set of tuples of action. In each tuple the first number is the pile number as zero indexed, and the second number displays the cards to remove from the selected pile.
+        &#34;&#34;&#34;
+        actions = set()
+        for i, pile in enumerate(piles):
+            for j in range(1, pile + 1):
+                actions.add((i, j))
+        return actions
+
+    @classmethod
+    def other_player(cls, player: int) -&gt; int:
+
+        &#34;&#34;&#34;
+        The function tells the which turn is next of the either player on behald of player provided.
+
+        ## Parameters:
+        *player*: The current player turn.
+
+        ## Return:
+        The int of other player&#39;s turn.
+        &#34;&#34;&#34;
+
+        return 0 if player == 1 else 1
+
+    def switch_player(self) -&gt; None:
+
+        &#34;&#34;&#34;
+        The function switches the turn from current player to other player.
+        &#34;&#34;&#34;
+
+        self.player = Nim.other_player(self.player)
+
+    def move(self, action: tuple) -&gt; None:
+
+        &#34;&#34;&#34;
+        The game make a move through this function. The piles are updated and the turn goes to next player.
+            Keep track of Winner in hand to hand.
+
+        ## Parameter:
+        *action*: The action (i, j) to take in the pile.
+        &#34;&#34;&#34;
+
+        pile, count = action
+
+        # Update pile
+        self.piles[pile] = self.piles[pile] - count
+        self.switch_player()
+
+        # Check for a winner
+        for pile in self.piles:
+            if pile != 0:
+                return
+        self.winner = self.player
+        # else:
+        #     self.winner = self.player
+        # if all(pile == 0 for pile in self.piles):
+        #     self.winner = self.player
+
+
+class NimAI:
+    def __init__(self, alpha: float = 0.5, epsilon: float = 0.1) -&gt; None:
+        &#34;&#34;&#34;
+        The class keeps track of the agent. This piece of code makes an AI agent
+            and train that on the basis of reinforcement learning. The one
+            of the attributes is the base of experience of the agent. The experience
+            is based on Q values or rewards for each action taken in the current
+            state either by the human or AI agent during gameplay or training of
+            AI itself. The reward of 1 is awarded for the action caused in winning
+            and -1 for the action in the particular state that caused in loss.
+            The 0 reward which action couldn&#39;t cause win or loss and game is continued.
+
+        ## Parameters:
+        *alpha*: The learning rate, how we value the current and future reward. \n
+        *epsilon*: The probability of epsilon for the exploration.
+
+        ## Return:
+        None
+        &#34;&#34;&#34;
+        self.q: dict = dict()
+        self.alpha: float = alpha
+        self.epsilon: float = epsilon
+
+    def update(
+        self, old_state: list, action: tuple, new_state: list, reward: int
+    ) -&gt; None:
+
+        &#34;&#34;&#34;
+        The updating of Q value for every action in the state in the game played is
+            necessary for the experience of AI agent. The reward for every action in
+            the state taken is stored in the dictionary of self.q with the label of
+            state and action. The method to assign reward is known as Q learning Formula.
+            The current rewards and the future rewards are take into consideration
+
+        ## Parameters:
+        *old_state*: The tuple of piles which were recorded before the current state. \n
+        *action*: The action took on the old_state. \n
+        *new_state*: The new state of piles which are formed after taking action on old_state. \n
+        *reward*: The integer value for congratulations (1) or punishment (-1) or no reward (0) for the ai agent for every action by human or agent to gain experience.
+
+        ## Return:
+        None
+        &#34;&#34;&#34;
+
+        old: float = self.get_q_value(old_state, action)
+        best_future: float = self.best_future_reward(new_state)
+
+        # Update q value according to Q learning formula
+        self.q[tuple(old_state), action] = old + (
+            self.alpha * ((reward + best_future) - old)
+        )
+
+    def get_q_value(self, state: list, action: tuple) -&gt; float:
+        &#34;&#34;&#34;
+        The function return the Q value for the provied action in the state of piles
+            from the dictionary of self.q. If no experience found, assign the Q value 0.
+
+        ## Paramenters:
+        *state*: The state of piles. \n
+        *action*: The action (i, j) to be or taken on the state.
+
+        ## Return:
+        The Q value for action in the state.
+        &#34;&#34;&#34;
+
+        try:
+            return self.q[tuple(state), action]
+        except KeyError:
+            return 0
+
+    def best_future_reward(self, state: list) -&gt; float:
+        &#34;&#34;&#34;
+        The function return the max Q value of the all actions from the available
+            actions in the providied state, from self.q. If no rewards found, return
+            zero as Q value or reward.
+
+        ## Parameters:
+        *state*: The state of piles.
+
+        ## Return:
+        The max Q value of all actions in the provided state.
+        &#34;&#34;&#34;
+
+        actions = list(Nim.available_actions(state))
+        if not actions:
+            return 0
+        max_q = float(&#34;-inf&#34;)
+        for action in actions:
+            max_q = max(max_q, self.get_q_value(state, action))
+        return max_q
+
+    def choose_action(self, state: list, epsilon: bool = True) -&gt; tuple[int, int]:
+        &#34;&#34;&#34;
+            The function chooses action from the state for the agent. If the agent
+            is training itself, then the agent chooses random action with self.epsilon
+            and chooses best action with random float &gt; self.epsilon value. The algorithm
+            does exploration when training itself and choose best action when playing
+            with human.
+
+        ## Parameters:
+        *state*: the list of piles. \n
+        *epsilon*: When true the agent does exploration with a little exploitation.
+
+        ## Return:
+        The action based on exploitation or exploration.
+        &#34;&#34;&#34;
+
+        # False means exploitation
+        if not epsilon:
+            return self.choose_best_action(state)
+
+        # Otherwise exploration
+        else:
+            ran: float = random.random()
+            # greedy = 1 - ran
+            if ran &gt; self.epsilon:
+                return self.choose_best_action(state)
+            else:
+                return random.choice(list(Nim.available_actions(state)))
+
+    def choose_best_action(self, state: list) -&gt; tuple[int, int]:
+
+        &#34;&#34;&#34;
+        The function chooses the action with highest Q valuefor the agent from
+            available actions in the game during play or train(if required).
+
+        ## Parameters:
+        *state*: the list of piles.
+
+        ## Return:
+        The action based on exploitation or exploration.
+        &#34;&#34;&#34;
+        avail_actions = list(Nim.available_actions(state))
+        best_action: tuple[int, int] = random.choice(avail_actions)
+        best_q: float = self.get_q_value(state, best_action)
+        for action in avail_actions:
+            q = self.get_q_value(state, action)
+            if q &gt; best_q:
+                best_action = action
+                best_q = q
+        return best_action
+
+
+class GamePlay:
+    colors: dict = {
+        &#34;HEADER&#34;: &#34;\033[95m&#34;,
+        &#34;OKBLUE&#34;: &#34;\033[94m&#34;,
+        &#34;OKCYAN&#34;: &#34;\033[96m&#34;,
+        &#34;OKGREEN&#34;: &#34;\033[92m&#34;,
+        &#34;WARNING&#34;: &#34;\033[93m&#34;,
+        &#34;FAIL&#34;: &#34;\033[91m&#34;,
+        &#34;ENDC&#34;: &#34;\033[0m&#34;,
+        &#34;BOLD&#34;: &#34;\033[1m&#34;,
+        &#34;UNDERLINE&#34;: &#34;\033[4m&#34;,
+        &#34;CBLACK&#34;: &#34;\33[30m&#34;,
+        &#34;CWHITE&#34;: &#34;\33[37m&#34;,
+        &#34;CYELLOW&#34;: &#34;\33[33m&#34;,
+    }
+
+    @classmethod
+    def progress_bar(cls, progress: int, total: int) -&gt; None:
+        percent = (progress / float(total)) * 100
+        bar: str = &#34;❚&#34; * int(percent) + (&#34;-&#34; * (100 - int(percent)))
+        print(
+            f&#39;\r{GamePlay.colors[&#34;OKBLUE&#34;]}|{GamePlay.colors[&#34;OKGREEN&#34;]}{bar}{GamePlay.colors[&#34;OKGREEN&#34;]}| {GamePlay.colors[&#34;OKCYAN&#34;]}{percent:.2f}%&#39;,
+            end=&#34;\r&#34;,
+        )
+
+    @classmethod
+    def train(cls, n: int) -&gt; NimAI:
+
+        &#34;&#34;&#34;
+        The function trains the AI agent n times and returns the trained AI agent.
+
+        ## Parameters:
+        *n*: How many times AI should be trained.
+
+        ## Return:
+        Trained AI agent.
+        &#34;&#34;&#34;
+
+        player = NimAI()
+
+        print(&#34;Training AI...&#34;)
+        # Play n times games
+        for i in range(n):
+            cls.progress_bar(i + 1, n)
+
+            game = Nim()
+
+            # Keep the record of the current player move.
+            record: dict = {0: [], 1: []}
+
+            # Game loop
+            while True:
+                # Get the current state and action
+                state = game.piles.copy()
+                action = player.choose_action(game.piles)
+
+                # Keep record of last state and action
+                record[game.player].append((tuple(state), action))
+
+                # Make move
+                game.move(action)
+
+                # Get the new state
+                new_state = game.piles.copy()
+
+                # When game is over, update Q values with rewards
+                if not game.winner is None:
+                    player.update(state, action, new_state, -1)
+                    player.update(
+                        record[game.player][-1][0],
+                        record[game.player][-1][1],
+                        new_state,
+                        1,
+                    )
+                    break
+
+                # If game is continued, no rewards yet
+                elif len(record[game.player]):
+                    player.update(
+                        record[game.player][-1][0],
+                        record[game.player][-1][1],
+                        new_state,
+                        0,
+                    )
+
+        print(GamePlay.colors[&#34;CYELLOW&#34;], GamePlay.colors[&#34;BOLD&#34;])
+        print(&#34;Done training&#34;)
+        print(f&#34;Length of Experience Q: {len(player.q.items())}&#34;)
+
+        # Return the trained AI
+        return player
+
+    @classmethod
+    def play(cls, ai: NimAI, human: int) -&gt; None:
+        &#34;&#34;&#34;
+        Here&#39;s the gameplay where the human and agent both play against each other.
+            The turn of the game is played by human or AI agent, then other until
+            the one of them wins.
+
+        ## Parameters:
+        *ai*: The trained AI agent to play the game with. \n
+        *human*: 0 value ndicates whether human should play first and 1 value indicates AI first turn.
+        &#34;&#34;&#34;
+        # Keeping base for words against numbers
+        words = [
+            &#34;zero&#34;,
+            &#34;one&#34;,
+            &#34;two&#34;,
+            &#34;three&#34;,
+            &#34;four&#34;,
+            &#34;five&#34;,
+            &#34;six&#34;,
+            &#34;seven&#34;,
+            &#34;eight&#34;,
+            &#34;nine&#34;,
+            &#34;ten&#34;,
+        ]
+
+        # Create new game
+        game = Nim()
+
+        # Keep record of the current player move
+        record: dict = {0: [], 1: []}
+
+        # newstates
+        new_states = []
+
+        # Game loop
+        while True:
+            # Print contents of piles
+            print()
+            print(&#34;Deck of cards:&#34;)
+            for i, pile in enumerate(game.piles):
+                print(f&#34;Deck number {words[i + 1]} has {pile} cards&#34;)
+            print()
+
+            # Compute available actions
+            available_actions = Nim.available_actions(game.piles)
+
+            # Let human make a move
+            if game.player == human:
+                print(&#34;Your Turn&#34;)
+                while True:
+                    try:
+                        pile = int(input(&#34;Choose Deck: &#34;))
+                        pile -= 1
+                        count = int(input(&#34;Choose Count: &#34;))
+                    except ValueError:
+                        print(&#34;Kindly enter int value.&#34;)
+                    else:
+                        if (pile, count) in available_actions:
+                            break
+                        else:
+                            print(&#34;Invalid move, try again.&#34;)
+
+            # Have AI choose action
+            else:
+                print(&#34;AI&#39;s Turn&#34;)
+                pile, count = ai.choose_action(game.piles, epsilon=False)
+                print(f&#34;AI chose to take {count} cards from Deck {words[pile + 1]}.&#34;)
+
+            # Get the current state and action
+            state = game.piles.copy()
+            action = (pile, count)
+
+            # Update the record with move
+            record[game.player].append((tuple(state), action))
+
+            # Make move
+            game.move(action)
+
+            # Get the new state
+            new_state = game.piles.copy()
+            new_states.append(new_state)
+
+            # Check for winner
+            if game.winner is not None:
+                print()
+                print(&#34;GAME IS OVER&#34;)
+                winner = &#34;Human&#34; if game.winner == human else &#34;AI&#34;
+                print(f&#34;Winner is {winner}&#34;)
+                return
+
+
+def main(loops: int = 10000) -&gt; None:
+    ai = GamePlay.train(loops)
+    print()
+    print(
+        &#34;The game consists of four decks having several cards. You have to remove several cards upon your turn\n&#34;
+        &#34;in any order, such that the player having last turn will lose the game.&#34;
+    )
+    sleep(1)
+    print()
+    while True:
+        while True:
+            try:
+                turn = int(input(&#34;Do you want your turn or AI Turn? Yours: 0, AI: 1: &#34;))
+            except ValueError:
+                print(&#34;Kindly enter int value&#34;)
+            else:
+                if turn == 0 or turn == 1:
+                    break
+        GamePlay.play(ai, turn)
+        if input(&#34;Do you want to Exit? [y]: &#34;).lower() == &#34;y&#34;:
+            sys.exit(0)
+
+
+# Calling main function
+if __name__ == &#34;__main__&#34;:
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit(&#34;\b\bYou are exit now....&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="game_of_cards.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>loops: int = 10000) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(loops: int = 10000) -&gt; None:
+    ai = GamePlay.train(loops)
+    print()
+    print(
+        &#34;The game consists of four decks having several cards. You have to remove several cards upon your turn\n&#34;
+        &#34;in any order, such that the player having last turn will lose the game.&#34;
+    )
+    sleep(1)
+    print()
+    while True:
+        while True:
+            try:
+                turn = int(input(&#34;Do you want your turn or AI Turn? Yours: 0, AI: 1: &#34;))
+            except ValueError:
+                print(&#34;Kindly enter int value&#34;)
+            else:
+                if turn == 0 or turn == 1:
+                    break
+        GamePlay.play(ai, turn)
+        if input(&#34;Do you want to Exit? [y]: &#34;).lower() == &#34;y&#34;:
+            sys.exit(0)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="game_of_cards.GamePlay"><code class="flex name class">
+<span>class <span class="ident">GamePlay</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GamePlay:
+    colors: dict = {
+        &#34;HEADER&#34;: &#34;\033[95m&#34;,
+        &#34;OKBLUE&#34;: &#34;\033[94m&#34;,
+        &#34;OKCYAN&#34;: &#34;\033[96m&#34;,
+        &#34;OKGREEN&#34;: &#34;\033[92m&#34;,
+        &#34;WARNING&#34;: &#34;\033[93m&#34;,
+        &#34;FAIL&#34;: &#34;\033[91m&#34;,
+        &#34;ENDC&#34;: &#34;\033[0m&#34;,
+        &#34;BOLD&#34;: &#34;\033[1m&#34;,
+        &#34;UNDERLINE&#34;: &#34;\033[4m&#34;,
+        &#34;CBLACK&#34;: &#34;\33[30m&#34;,
+        &#34;CWHITE&#34;: &#34;\33[37m&#34;,
+        &#34;CYELLOW&#34;: &#34;\33[33m&#34;,
+    }
+
+    @classmethod
+    def progress_bar(cls, progress: int, total: int) -&gt; None:
+        percent = (progress / float(total)) * 100
+        bar: str = &#34;❚&#34; * int(percent) + (&#34;-&#34; * (100 - int(percent)))
+        print(
+            f&#39;\r{GamePlay.colors[&#34;OKBLUE&#34;]}|{GamePlay.colors[&#34;OKGREEN&#34;]}{bar}{GamePlay.colors[&#34;OKGREEN&#34;]}| {GamePlay.colors[&#34;OKCYAN&#34;]}{percent:.2f}%&#39;,
+            end=&#34;\r&#34;,
+        )
+
+    @classmethod
+    def train(cls, n: int) -&gt; NimAI:
+
+        &#34;&#34;&#34;
+        The function trains the AI agent n times and returns the trained AI agent.
+
+        ## Parameters:
+        *n*: How many times AI should be trained.
+
+        ## Return:
+        Trained AI agent.
+        &#34;&#34;&#34;
+
+        player = NimAI()
+
+        print(&#34;Training AI...&#34;)
+        # Play n times games
+        for i in range(n):
+            cls.progress_bar(i + 1, n)
+
+            game = Nim()
+
+            # Keep the record of the current player move.
+            record: dict = {0: [], 1: []}
+
+            # Game loop
+            while True:
+                # Get the current state and action
+                state = game.piles.copy()
+                action = player.choose_action(game.piles)
+
+                # Keep record of last state and action
+                record[game.player].append((tuple(state), action))
+
+                # Make move
+                game.move(action)
+
+                # Get the new state
+                new_state = game.piles.copy()
+
+                # When game is over, update Q values with rewards
+                if not game.winner is None:
+                    player.update(state, action, new_state, -1)
+                    player.update(
+                        record[game.player][-1][0],
+                        record[game.player][-1][1],
+                        new_state,
+                        1,
+                    )
+                    break
+
+                # If game is continued, no rewards yet
+                elif len(record[game.player]):
+                    player.update(
+                        record[game.player][-1][0],
+                        record[game.player][-1][1],
+                        new_state,
+                        0,
+                    )
+
+        print(GamePlay.colors[&#34;CYELLOW&#34;], GamePlay.colors[&#34;BOLD&#34;])
+        print(&#34;Done training&#34;)
+        print(f&#34;Length of Experience Q: {len(player.q.items())}&#34;)
+
+        # Return the trained AI
+        return player
+
+    @classmethod
+    def play(cls, ai: NimAI, human: int) -&gt; None:
+        &#34;&#34;&#34;
+        Here&#39;s the gameplay where the human and agent both play against each other.
+            The turn of the game is played by human or AI agent, then other until
+            the one of them wins.
+
+        ## Parameters:
+        *ai*: The trained AI agent to play the game with. \n
+        *human*: 0 value ndicates whether human should play first and 1 value indicates AI first turn.
+        &#34;&#34;&#34;
+        # Keeping base for words against numbers
+        words = [
+            &#34;zero&#34;,
+            &#34;one&#34;,
+            &#34;two&#34;,
+            &#34;three&#34;,
+            &#34;four&#34;,
+            &#34;five&#34;,
+            &#34;six&#34;,
+            &#34;seven&#34;,
+            &#34;eight&#34;,
+            &#34;nine&#34;,
+            &#34;ten&#34;,
+        ]
+
+        # Create new game
+        game = Nim()
+
+        # Keep record of the current player move
+        record: dict = {0: [], 1: []}
+
+        # newstates
+        new_states = []
+
+        # Game loop
+        while True:
+            # Print contents of piles
+            print()
+            print(&#34;Deck of cards:&#34;)
+            for i, pile in enumerate(game.piles):
+                print(f&#34;Deck number {words[i + 1]} has {pile} cards&#34;)
+            print()
+
+            # Compute available actions
+            available_actions = Nim.available_actions(game.piles)
+
+            # Let human make a move
+            if game.player == human:
+                print(&#34;Your Turn&#34;)
+                while True:
+                    try:
+                        pile = int(input(&#34;Choose Deck: &#34;))
+                        pile -= 1
+                        count = int(input(&#34;Choose Count: &#34;))
+                    except ValueError:
+                        print(&#34;Kindly enter int value.&#34;)
+                    else:
+                        if (pile, count) in available_actions:
+                            break
+                        else:
+                            print(&#34;Invalid move, try again.&#34;)
+
+            # Have AI choose action
+            else:
+                print(&#34;AI&#39;s Turn&#34;)
+                pile, count = ai.choose_action(game.piles, epsilon=False)
+                print(f&#34;AI chose to take {count} cards from Deck {words[pile + 1]}.&#34;)
+
+            # Get the current state and action
+            state = game.piles.copy()
+            action = (pile, count)
+
+            # Update the record with move
+            record[game.player].append((tuple(state), action))
+
+            # Make move
+            game.move(action)
+
+            # Get the new state
+            new_state = game.piles.copy()
+            new_states.append(new_state)
+
+            # Check for winner
+            if game.winner is not None:
+                print()
+                print(&#34;GAME IS OVER&#34;)
+                winner = &#34;Human&#34; if game.winner == human else &#34;AI&#34;
+                print(f&#34;Winner is {winner}&#34;)
+                return</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="game_of_cards.GamePlay.colors"><code class="name">var <span class="ident">colors</span> : dict</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="game_of_cards.GamePlay.play"><code class="name flex">
+<span>def <span class="ident">play</span></span>(<span>ai: <a title="game_of_cards.NimAI" href="#game_of_cards.NimAI">NimAI</a>, human: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Here's the gameplay where the human and agent both play against each other.
+The turn of the game is played by human or AI agent, then other until
+the one of them wins.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>ai</em>: The trained AI agent to play the game with. </p>
+<p><em>human</em>: 0 value ndicates whether human should play first and 1 value indicates AI first turn.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def play(cls, ai: NimAI, human: int) -&gt; None:
+    &#34;&#34;&#34;
+    Here&#39;s the gameplay where the human and agent both play against each other.
+        The turn of the game is played by human or AI agent, then other until
+        the one of them wins.
+
+    ## Parameters:
+    *ai*: The trained AI agent to play the game with. \n
+    *human*: 0 value ndicates whether human should play first and 1 value indicates AI first turn.
+    &#34;&#34;&#34;
+    # Keeping base for words against numbers
+    words = [
+        &#34;zero&#34;,
+        &#34;one&#34;,
+        &#34;two&#34;,
+        &#34;three&#34;,
+        &#34;four&#34;,
+        &#34;five&#34;,
+        &#34;six&#34;,
+        &#34;seven&#34;,
+        &#34;eight&#34;,
+        &#34;nine&#34;,
+        &#34;ten&#34;,
+    ]
+
+    # Create new game
+    game = Nim()
+
+    # Keep record of the current player move
+    record: dict = {0: [], 1: []}
+
+    # newstates
+    new_states = []
+
+    # Game loop
+    while True:
+        # Print contents of piles
+        print()
+        print(&#34;Deck of cards:&#34;)
+        for i, pile in enumerate(game.piles):
+            print(f&#34;Deck number {words[i + 1]} has {pile} cards&#34;)
+        print()
+
+        # Compute available actions
+        available_actions = Nim.available_actions(game.piles)
+
+        # Let human make a move
+        if game.player == human:
+            print(&#34;Your Turn&#34;)
+            while True:
+                try:
+                    pile = int(input(&#34;Choose Deck: &#34;))
+                    pile -= 1
+                    count = int(input(&#34;Choose Count: &#34;))
+                except ValueError:
+                    print(&#34;Kindly enter int value.&#34;)
+                else:
+                    if (pile, count) in available_actions:
+                        break
+                    else:
+                        print(&#34;Invalid move, try again.&#34;)
+
+        # Have AI choose action
+        else:
+            print(&#34;AI&#39;s Turn&#34;)
+            pile, count = ai.choose_action(game.piles, epsilon=False)
+            print(f&#34;AI chose to take {count} cards from Deck {words[pile + 1]}.&#34;)
+
+        # Get the current state and action
+        state = game.piles.copy()
+        action = (pile, count)
+
+        # Update the record with move
+        record[game.player].append((tuple(state), action))
+
+        # Make move
+        game.move(action)
+
+        # Get the new state
+        new_state = game.piles.copy()
+        new_states.append(new_state)
+
+        # Check for winner
+        if game.winner is not None:
+            print()
+            print(&#34;GAME IS OVER&#34;)
+            winner = &#34;Human&#34; if game.winner == human else &#34;AI&#34;
+            print(f&#34;Winner is {winner}&#34;)
+            return</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.GamePlay.progress_bar"><code class="name flex">
+<span>def <span class="ident">progress_bar</span></span>(<span>progress: int, total: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def progress_bar(cls, progress: int, total: int) -&gt; None:
+    percent = (progress / float(total)) * 100
+    bar: str = &#34;❚&#34; * int(percent) + (&#34;-&#34; * (100 - int(percent)))
+    print(
+        f&#39;\r{GamePlay.colors[&#34;OKBLUE&#34;]}|{GamePlay.colors[&#34;OKGREEN&#34;]}{bar}{GamePlay.colors[&#34;OKGREEN&#34;]}| {GamePlay.colors[&#34;OKCYAN&#34;]}{percent:.2f}%&#39;,
+        end=&#34;\r&#34;,
+    )</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.GamePlay.train"><code class="name flex">
+<span>def <span class="ident">train</span></span>(<span>n: int) ‑> <a title="game_of_cards.NimAI" href="#game_of_cards.NimAI">NimAI</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function trains the AI agent n times and returns the trained AI agent.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>n</em>: How many times AI should be trained.</p>
+<h2 id="return">Return:</h2>
+<p>Trained AI agent.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def train(cls, n: int) -&gt; NimAI:
+
+    &#34;&#34;&#34;
+    The function trains the AI agent n times and returns the trained AI agent.
+
+    ## Parameters:
+    *n*: How many times AI should be trained.
+
+    ## Return:
+    Trained AI agent.
+    &#34;&#34;&#34;
+
+    player = NimAI()
+
+    print(&#34;Training AI...&#34;)
+    # Play n times games
+    for i in range(n):
+        cls.progress_bar(i + 1, n)
+
+        game = Nim()
+
+        # Keep the record of the current player move.
+        record: dict = {0: [], 1: []}
+
+        # Game loop
+        while True:
+            # Get the current state and action
+            state = game.piles.copy()
+            action = player.choose_action(game.piles)
+
+            # Keep record of last state and action
+            record[game.player].append((tuple(state), action))
+
+            # Make move
+            game.move(action)
+
+            # Get the new state
+            new_state = game.piles.copy()
+
+            # When game is over, update Q values with rewards
+            if not game.winner is None:
+                player.update(state, action, new_state, -1)
+                player.update(
+                    record[game.player][-1][0],
+                    record[game.player][-1][1],
+                    new_state,
+                    1,
+                )
+                break
+
+            # If game is continued, no rewards yet
+            elif len(record[game.player]):
+                player.update(
+                    record[game.player][-1][0],
+                    record[game.player][-1][1],
+                    new_state,
+                    0,
+                )
+
+    print(GamePlay.colors[&#34;CYELLOW&#34;], GamePlay.colors[&#34;BOLD&#34;])
+    print(&#34;Done training&#34;)
+    print(f&#34;Length of Experience Q: {len(player.q.items())}&#34;)
+
+    # Return the trained AI
+    return player</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="game_of_cards.Nim"><code class="flex name class">
+<span>class <span class="ident">Nim</span></span>
+<span>(</span><span>initial: list = [1, 3, 5, 7])</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Nim:
+    def __init__(self, initial: list = [1, 3, 5, 7]) -&gt; None:
+        # The piles are the state of the cards
+
+        self.piles: list = initial.copy()
+        # Current turn of player
+        self.player: int = 0
+        # Current winner
+        self.winner: (None | int) = None
+
+    @classmethod
+    def available_actions(cls, piles: list) -&gt; set:
+        &#34;&#34;&#34;
+        Find the all the available actions in the provided piles.
+
+        ## Paramenters:
+        *piles:* The All piles in the game currently being played.
+
+        ## Return:
+        The set of tuples of action. In each tuple the first number is the pile number as zero indexed, and the second number displays the cards to remove from the selected pile.
+        &#34;&#34;&#34;
+        actions = set()
+        for i, pile in enumerate(piles):
+            for j in range(1, pile + 1):
+                actions.add((i, j))
+        return actions
+
+    @classmethod
+    def other_player(cls, player: int) -&gt; int:
+
+        &#34;&#34;&#34;
+        The function tells the which turn is next of the either player on behald of player provided.
+
+        ## Parameters:
+        *player*: The current player turn.
+
+        ## Return:
+        The int of other player&#39;s turn.
+        &#34;&#34;&#34;
+
+        return 0 if player == 1 else 1
+
+    def switch_player(self) -&gt; None:
+
+        &#34;&#34;&#34;
+        The function switches the turn from current player to other player.
+        &#34;&#34;&#34;
+
+        self.player = Nim.other_player(self.player)
+
+    def move(self, action: tuple) -&gt; None:
+
+        &#34;&#34;&#34;
+        The game make a move through this function. The piles are updated and the turn goes to next player.
+            Keep track of Winner in hand to hand.
+
+        ## Parameter:
+        *action*: The action (i, j) to take in the pile.
+        &#34;&#34;&#34;
+
+        pile, count = action
+
+        # Update pile
+        self.piles[pile] = self.piles[pile] - count
+        self.switch_player()
+
+        # Check for a winner
+        for pile in self.piles:
+            if pile != 0:
+                return
+        self.winner = self.player
+        # else:
+        #     self.winner = self.player
+        # if all(pile == 0 for pile in self.piles):
+        #     self.winner = self.player</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="game_of_cards.Nim.available_actions"><code class="name flex">
+<span>def <span class="ident">available_actions</span></span>(<span>piles: list) ‑> set</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Find the all the available actions in the provided piles.</p>
+<h2 id="paramenters">Paramenters:</h2>
+<p><em>piles:</em> The All piles in the game currently being played.</p>
+<h2 id="return">Return:</h2>
+<p>The set of tuples of action. In each tuple the first number is the pile number as zero indexed, and the second number displays the cards to remove from the selected pile.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def available_actions(cls, piles: list) -&gt; set:
+    &#34;&#34;&#34;
+    Find the all the available actions in the provided piles.
+
+    ## Paramenters:
+    *piles:* The All piles in the game currently being played.
+
+    ## Return:
+    The set of tuples of action. In each tuple the first number is the pile number as zero indexed, and the second number displays the cards to remove from the selected pile.
+    &#34;&#34;&#34;
+    actions = set()
+    for i, pile in enumerate(piles):
+        for j in range(1, pile + 1):
+            actions.add((i, j))
+    return actions</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.Nim.other_player"><code class="name flex">
+<span>def <span class="ident">other_player</span></span>(<span>player: int) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function tells the which turn is next of the either player on behald of player provided.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>player</em>: The current player turn.</p>
+<h2 id="return">Return:</h2>
+<p>The int of other player's turn.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@classmethod
+def other_player(cls, player: int) -&gt; int:
+
+    &#34;&#34;&#34;
+    The function tells the which turn is next of the either player on behald of player provided.
+
+    ## Parameters:
+    *player*: The current player turn.
+
+    ## Return:
+    The int of other player&#39;s turn.
+    &#34;&#34;&#34;
+
+    return 0 if player == 1 else 1</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="game_of_cards.Nim.move"><code class="name flex">
+<span>def <span class="ident">move</span></span>(<span>self, action: tuple) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The game make a move through this function. The piles are updated and the turn goes to next player.
+Keep track of Winner in hand to hand.</p>
+<h2 id="parameter">Parameter:</h2>
+<p><em>action</em>: The action (i, j) to take in the pile.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def move(self, action: tuple) -&gt; None:
+
+    &#34;&#34;&#34;
+    The game make a move through this function. The piles are updated and the turn goes to next player.
+        Keep track of Winner in hand to hand.
+
+    ## Parameter:
+    *action*: The action (i, j) to take in the pile.
+    &#34;&#34;&#34;
+
+    pile, count = action
+
+    # Update pile
+    self.piles[pile] = self.piles[pile] - count
+    self.switch_player()
+
+    # Check for a winner
+    for pile in self.piles:
+        if pile != 0:
+            return
+    self.winner = self.player
+    # else:
+    #     self.winner = self.player
+    # if all(pile == 0 for pile in self.piles):
+    #     self.winner = self.player</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.Nim.switch_player"><code class="name flex">
+<span>def <span class="ident">switch_player</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function switches the turn from current player to other player.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def switch_player(self) -&gt; None:
+
+    &#34;&#34;&#34;
+    The function switches the turn from current player to other player.
+    &#34;&#34;&#34;
+
+    self.player = Nim.other_player(self.player)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="game_of_cards.NimAI"><code class="flex name class">
+<span>class <span class="ident">NimAI</span></span>
+<span>(</span><span>alpha: float = 0.5, epsilon: float = 0.1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The class keeps track of the agent. This piece of code makes an AI agent
+and train that on the basis of reinforcement learning. The one
+of the attributes is the base of experience of the agent. The experience
+is based on Q values or rewards for each action taken in the current
+state either by the human or AI agent during gameplay or training of
+AI itself. The reward of 1 is awarded for the action caused in winning
+and -1 for the action in the particular state that caused in loss.
+The 0 reward which action couldn't cause win or loss and game is continued.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>alpha</em>: The learning rate, how we value the current and future reward. </p>
+<p><em>epsilon</em>: The probability of epsilon for the exploration.</p>
+<h2 id="return">Return:</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class NimAI:
+    def __init__(self, alpha: float = 0.5, epsilon: float = 0.1) -&gt; None:
+        &#34;&#34;&#34;
+        The class keeps track of the agent. This piece of code makes an AI agent
+            and train that on the basis of reinforcement learning. The one
+            of the attributes is the base of experience of the agent. The experience
+            is based on Q values or rewards for each action taken in the current
+            state either by the human or AI agent during gameplay or training of
+            AI itself. The reward of 1 is awarded for the action caused in winning
+            and -1 for the action in the particular state that caused in loss.
+            The 0 reward which action couldn&#39;t cause win or loss and game is continued.
+
+        ## Parameters:
+        *alpha*: The learning rate, how we value the current and future reward. \n
+        *epsilon*: The probability of epsilon for the exploration.
+
+        ## Return:
+        None
+        &#34;&#34;&#34;
+        self.q: dict = dict()
+        self.alpha: float = alpha
+        self.epsilon: float = epsilon
+
+    def update(
+        self, old_state: list, action: tuple, new_state: list, reward: int
+    ) -&gt; None:
+
+        &#34;&#34;&#34;
+        The updating of Q value for every action in the state in the game played is
+            necessary for the experience of AI agent. The reward for every action in
+            the state taken is stored in the dictionary of self.q with the label of
+            state and action. The method to assign reward is known as Q learning Formula.
+            The current rewards and the future rewards are take into consideration
+
+        ## Parameters:
+        *old_state*: The tuple of piles which were recorded before the current state. \n
+        *action*: The action took on the old_state. \n
+        *new_state*: The new state of piles which are formed after taking action on old_state. \n
+        *reward*: The integer value for congratulations (1) or punishment (-1) or no reward (0) for the ai agent for every action by human or agent to gain experience.
+
+        ## Return:
+        None
+        &#34;&#34;&#34;
+
+        old: float = self.get_q_value(old_state, action)
+        best_future: float = self.best_future_reward(new_state)
+
+        # Update q value according to Q learning formula
+        self.q[tuple(old_state), action] = old + (
+            self.alpha * ((reward + best_future) - old)
+        )
+
+    def get_q_value(self, state: list, action: tuple) -&gt; float:
+        &#34;&#34;&#34;
+        The function return the Q value for the provied action in the state of piles
+            from the dictionary of self.q. If no experience found, assign the Q value 0.
+
+        ## Paramenters:
+        *state*: The state of piles. \n
+        *action*: The action (i, j) to be or taken on the state.
+
+        ## Return:
+        The Q value for action in the state.
+        &#34;&#34;&#34;
+
+        try:
+            return self.q[tuple(state), action]
+        except KeyError:
+            return 0
+
+    def best_future_reward(self, state: list) -&gt; float:
+        &#34;&#34;&#34;
+        The function return the max Q value of the all actions from the available
+            actions in the providied state, from self.q. If no rewards found, return
+            zero as Q value or reward.
+
+        ## Parameters:
+        *state*: The state of piles.
+
+        ## Return:
+        The max Q value of all actions in the provided state.
+        &#34;&#34;&#34;
+
+        actions = list(Nim.available_actions(state))
+        if not actions:
+            return 0
+        max_q = float(&#34;-inf&#34;)
+        for action in actions:
+            max_q = max(max_q, self.get_q_value(state, action))
+        return max_q
+
+    def choose_action(self, state: list, epsilon: bool = True) -&gt; tuple[int, int]:
+        &#34;&#34;&#34;
+            The function chooses action from the state for the agent. If the agent
+            is training itself, then the agent chooses random action with self.epsilon
+            and chooses best action with random float &gt; self.epsilon value. The algorithm
+            does exploration when training itself and choose best action when playing
+            with human.
+
+        ## Parameters:
+        *state*: the list of piles. \n
+        *epsilon*: When true the agent does exploration with a little exploitation.
+
+        ## Return:
+        The action based on exploitation or exploration.
+        &#34;&#34;&#34;
+
+        # False means exploitation
+        if not epsilon:
+            return self.choose_best_action(state)
+
+        # Otherwise exploration
+        else:
+            ran: float = random.random()
+            # greedy = 1 - ran
+            if ran &gt; self.epsilon:
+                return self.choose_best_action(state)
+            else:
+                return random.choice(list(Nim.available_actions(state)))
+
+    def choose_best_action(self, state: list) -&gt; tuple[int, int]:
+
+        &#34;&#34;&#34;
+        The function chooses the action with highest Q valuefor the agent from
+            available actions in the game during play or train(if required).
+
+        ## Parameters:
+        *state*: the list of piles.
+
+        ## Return:
+        The action based on exploitation or exploration.
+        &#34;&#34;&#34;
+        avail_actions = list(Nim.available_actions(state))
+        best_action: tuple[int, int] = random.choice(avail_actions)
+        best_q: float = self.get_q_value(state, best_action)
+        for action in avail_actions:
+            q = self.get_q_value(state, action)
+            if q &gt; best_q:
+                best_action = action
+                best_q = q
+        return best_action</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="game_of_cards.NimAI.best_future_reward"><code class="name flex">
+<span>def <span class="ident">best_future_reward</span></span>(<span>self, state: list) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function return the max Q value of the all actions from the available
+actions in the providied state, from self.q. If no rewards found, return
+zero as Q value or reward.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>state</em>: The state of piles.</p>
+<h2 id="return">Return:</h2>
+<p>The max Q value of all actions in the provided state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def best_future_reward(self, state: list) -&gt; float:
+    &#34;&#34;&#34;
+    The function return the max Q value of the all actions from the available
+        actions in the providied state, from self.q. If no rewards found, return
+        zero as Q value or reward.
+
+    ## Parameters:
+    *state*: The state of piles.
+
+    ## Return:
+    The max Q value of all actions in the provided state.
+    &#34;&#34;&#34;
+
+    actions = list(Nim.available_actions(state))
+    if not actions:
+        return 0
+    max_q = float(&#34;-inf&#34;)
+    for action in actions:
+        max_q = max(max_q, self.get_q_value(state, action))
+    return max_q</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.NimAI.choose_action"><code class="name flex">
+<span>def <span class="ident">choose_action</span></span>(<span>self, state: list, epsilon: bool = True) ‑> tuple[int, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function chooses action from the state for the agent. If the agent
+is training itself, then the agent chooses random action with self.epsilon
+and chooses best action with random float &gt; self.epsilon value. The algorithm
+does exploration when training itself and choose best action when playing
+with human.</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>state</em>: the list of piles. </p>
+<p><em>epsilon</em>: When true the agent does exploration with a little exploitation.</p>
+<h2 id="return">Return:</h2>
+<p>The action based on exploitation or exploration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def choose_action(self, state: list, epsilon: bool = True) -&gt; tuple[int, int]:
+    &#34;&#34;&#34;
+        The function chooses action from the state for the agent. If the agent
+        is training itself, then the agent chooses random action with self.epsilon
+        and chooses best action with random float &gt; self.epsilon value. The algorithm
+        does exploration when training itself and choose best action when playing
+        with human.
+
+    ## Parameters:
+    *state*: the list of piles. \n
+    *epsilon*: When true the agent does exploration with a little exploitation.
+
+    ## Return:
+    The action based on exploitation or exploration.
+    &#34;&#34;&#34;
+
+    # False means exploitation
+    if not epsilon:
+        return self.choose_best_action(state)
+
+    # Otherwise exploration
+    else:
+        ran: float = random.random()
+        # greedy = 1 - ran
+        if ran &gt; self.epsilon:
+            return self.choose_best_action(state)
+        else:
+            return random.choice(list(Nim.available_actions(state)))</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.NimAI.choose_best_action"><code class="name flex">
+<span>def <span class="ident">choose_best_action</span></span>(<span>self, state: list) ‑> tuple[int, int]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function chooses the action with highest Q valuefor the agent from
+available actions in the game during play or train(if required).</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>state</em>: the list of piles.</p>
+<h2 id="return">Return:</h2>
+<p>The action based on exploitation or exploration.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def choose_best_action(self, state: list) -&gt; tuple[int, int]:
+
+    &#34;&#34;&#34;
+    The function chooses the action with highest Q valuefor the agent from
+        available actions in the game during play or train(if required).
+
+    ## Parameters:
+    *state*: the list of piles.
+
+    ## Return:
+    The action based on exploitation or exploration.
+    &#34;&#34;&#34;
+    avail_actions = list(Nim.available_actions(state))
+    best_action: tuple[int, int] = random.choice(avail_actions)
+    best_q: float = self.get_q_value(state, best_action)
+    for action in avail_actions:
+        q = self.get_q_value(state, action)
+        if q &gt; best_q:
+            best_action = action
+            best_q = q
+    return best_action</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.NimAI.get_q_value"><code class="name flex">
+<span>def <span class="ident">get_q_value</span></span>(<span>self, state: list, action: tuple) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The function return the Q value for the provied action in the state of piles
+from the dictionary of self.q. If no experience found, assign the Q value 0.</p>
+<h2 id="paramenters">Paramenters:</h2>
+<p><em>state</em>: The state of piles. </p>
+<p><em>action</em>: The action (i, j) to be or taken on the state.</p>
+<h2 id="return">Return:</h2>
+<p>The Q value for action in the state.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_q_value(self, state: list, action: tuple) -&gt; float:
+    &#34;&#34;&#34;
+    The function return the Q value for the provied action in the state of piles
+        from the dictionary of self.q. If no experience found, assign the Q value 0.
+
+    ## Paramenters:
+    *state*: The state of piles. \n
+    *action*: The action (i, j) to be or taken on the state.
+
+    ## Return:
+    The Q value for action in the state.
+    &#34;&#34;&#34;
+
+    try:
+        return self.q[tuple(state), action]
+    except KeyError:
+        return 0</code></pre>
+</details>
+</dd>
+<dt id="game_of_cards.NimAI.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self, old_state: list, action: tuple, new_state: list, reward: int) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The updating of Q value for every action in the state in the game played is
+necessary for the experience of AI agent. The reward for every action in
+the state taken is stored in the dictionary of self.q with the label of
+state and action. The method to assign reward is known as Q learning Formula.
+The current rewards and the future rewards are take into consideration</p>
+<h2 id="parameters">Parameters:</h2>
+<p><em>old_state</em>: The tuple of piles which were recorded before the current state. </p>
+<p><em>action</em>: The action took on the old_state. </p>
+<p><em>new_state</em>: The new state of piles which are formed after taking action on old_state. </p>
+<p><em>reward</em>: The integer value for congratulations (1) or punishment (-1) or no reward (0) for the ai agent for every action by human or agent to gain experience.</p>
+<h2 id="return">Return:</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update(
+    self, old_state: list, action: tuple, new_state: list, reward: int
+) -&gt; None:
+
+    &#34;&#34;&#34;
+    The updating of Q value for every action in the state in the game played is
+        necessary for the experience of AI agent. The reward for every action in
+        the state taken is stored in the dictionary of self.q with the label of
+        state and action. The method to assign reward is known as Q learning Formula.
+        The current rewards and the future rewards are take into consideration
+
+    ## Parameters:
+    *old_state*: The tuple of piles which were recorded before the current state. \n
+    *action*: The action took on the old_state. \n
+    *new_state*: The new state of piles which are formed after taking action on old_state. \n
+    *reward*: The integer value for congratulations (1) or punishment (-1) or no reward (0) for the ai agent for every action by human or agent to gain experience.
+
+    ## Return:
+    None
+    &#34;&#34;&#34;
+
+    old: float = self.get_q_value(old_state, action)
+    best_future: float = self.best_future_reward(new_state)
+
+    # Update q value according to Q learning formula
+    self.q[tuple(old_state), action] = old + (
+        self.alpha * ((reward + best_future) - old)
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="game_of_cards.main" href="#game_of_cards.main">main</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="game_of_cards.GamePlay" href="#game_of_cards.GamePlay">GamePlay</a></code></h4>
+<ul class="">
+<li><code><a title="game_of_cards.GamePlay.colors" href="#game_of_cards.GamePlay.colors">colors</a></code></li>
+<li><code><a title="game_of_cards.GamePlay.play" href="#game_of_cards.GamePlay.play">play</a></code></li>
+<li><code><a title="game_of_cards.GamePlay.progress_bar" href="#game_of_cards.GamePlay.progress_bar">progress_bar</a></code></li>
+<li><code><a title="game_of_cards.GamePlay.train" href="#game_of_cards.GamePlay.train">train</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="game_of_cards.Nim" href="#game_of_cards.Nim">Nim</a></code></h4>
+<ul class="">
+<li><code><a title="game_of_cards.Nim.available_actions" href="#game_of_cards.Nim.available_actions">available_actions</a></code></li>
+<li><code><a title="game_of_cards.Nim.move" href="#game_of_cards.Nim.move">move</a></code></li>
+<li><code><a title="game_of_cards.Nim.other_player" href="#game_of_cards.Nim.other_player">other_player</a></code></li>
+<li><code><a title="game_of_cards.Nim.switch_player" href="#game_of_cards.Nim.switch_player">switch_player</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="game_of_cards.NimAI" href="#game_of_cards.NimAI">NimAI</a></code></h4>
+<ul class="">
+<li><code><a title="game_of_cards.NimAI.best_future_reward" href="#game_of_cards.NimAI.best_future_reward">best_future_reward</a></code></li>
+<li><code><a title="game_of_cards.NimAI.choose_action" href="#game_of_cards.NimAI.choose_action">choose_action</a></code></li>
+<li><code><a title="game_of_cards.NimAI.choose_best_action" href="#game_of_cards.NimAI.choose_best_action">choose_best_action</a></code></li>
+<li><code><a title="game_of_cards.NimAI.get_q_value" href="#game_of_cards.NimAI.get_q_value">get_q_value</a></code></li>
+<li><code><a title="game_of_cards.NimAI.update" href="#game_of_cards.NimAI.update">update</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
